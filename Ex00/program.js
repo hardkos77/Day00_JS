@@ -1,23 +1,17 @@
-function twoNumberSum(array, targetSum){
-    let sum;
-    let result = [];
-    for (let i=0; i < array.length; i++) {
-        for (let j=0; j < array.length - i; j++ ) {
-            if (i !== i+j) {
-                sum=array[i]+array[i+j];
-                if (sum === targetSum) {
-                    result.push([array[i],array[i+j]]);
-                }
-            }
+function twoNumberSum(array, targetSum) {
+    for (let i = 0; i < array.length; i++) {
+        const diffIndex = array.indexOf(targetSum - array[i]);
+        if (diffIndex >= 0 && diffIndex !== i) {
+            return [i, diffIndex];
         }
     }
-    return result;
+    return [];
 }
 
 twoNumberSum(array, targetSum);
 
 // Merci de ne pas effacer la ligne en dessous.
 
-exports.twoNumberSum = twoNumberSum;
+exports.twoNumberSum =  twoNumberSum;
 
 
